@@ -1,0 +1,29 @@
+[package]
+name = "driver"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[profile.dev]
+panic = "abort"
+lto = true
+
+[profile.release]
+panic = "abort"
+lto = true
+
+[dependencies.windows-sys]
+version = "0.59.0"
+features = [
+    "Wdk_Foundation",
+    "Wdk_Storage_FileSystem_Minifilters",
+    "Wdk_System_SystemServices",
+    "Win32_Security",
+    "Win32_Storage_InstallableFileSystems",
+    "Win32_System_IO",
+    "Win32_System_Kernel",
+    "Win32_System_Power"
+]
